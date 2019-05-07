@@ -1,0 +1,14 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+
+  &__logos {
+    margin-left: 10%;
+
+    img {
+      height: 16px;
+      margin-right: 5px;
+    }
+  }
+}

@@ -6,11 +6,12 @@ class Portfolio extends Component {
     super(props);
     this.state = {
       elements: [
+        this.generatePortfolioElement('Boda Perez-Castilla Martinez', 'p_HV8e5VwLA'),
         this.generatePortfolioElement('H20', '-Cxzy89DTlU'),
-        this.generatePortfolioElement('Muestra Cuentos Tío Pepe', '0df_ADevFew'),
         this.generatePortfolioElement('Ladies Night', 'f-lvW8bmdrU'),
         this.generatePortfolioElement('Cuentos Tío Pepe 2018', 'TZAXKyNU_bw'),
         this.generatePortfolioElement('Dr. Ibiza "Cálida Noche"', '4BpMqyZHOwQ'),
+        this.generatePortfolioElement('Muestra Cuentos Tío Pepe', '0df_ADevFew'),
         this.generatePortfolioElement('Itinerante Amarillo', 'PIHYMBzO1oQ')
       ],
       videoModal: {
@@ -42,6 +43,7 @@ class Portfolio extends Component {
    * @param {string} youtubeId - youtube Id of the video to reproduce in the iframe modal
    */
   openVideoModal(element) {
+    document.body.style.overflow = "hidden";
     this.setState({videoModal: { isModalOpen: true,  element }});
   }
 
@@ -49,6 +51,7 @@ class Portfolio extends Component {
    * Closes the modal with youtube iframe used to reproduce an element
    */
   closeVideoModal() {
+    document.body.style.overflow = "auto";
     this.setState({ videoModal: { isModalOpen: false,  element: null }});
   }
 

@@ -9,15 +9,23 @@ const PortfolioVideo = ({ element, closeVideoModal }) => {
   const videoUrl = `https://www.youtube.com/embed/${youtubeId}?autoplay=1`;
   
   return(
-    <div class="portfolio-page__video">
-      <iframe
-        title={title}
-        className="portfolio-page__video"
-        src={videoUrl}
-        frameborder="0" 
-        allowfullscreen
-      >
-      </iframe>
+    <div className="portfolio-page__video">
+      <div className="portfolio-page__video__modal">
+        <div 
+          className="portfolio-page__video__close-button" 
+          onClick={closeVideoModal}
+        >
+          Close Video
+        </div>
+        <iframe
+          title={title}
+          className="portfolio-page__video__frame"
+          src={videoUrl}
+          frameBorder="0" 
+          allowFullScreen
+        >
+        </iframe>
+      </div>
     </div>
   )
 }

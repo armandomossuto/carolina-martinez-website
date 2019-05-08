@@ -10,7 +10,7 @@ $videoWidth: 840px;
 
     &__element {
         margin-bottom: 20px;
-        flex: 1 0 calc(33.33% - 15px);
+        flex: 0 0 calc(33.33% - 15px);
 
         &__thumbnail {
             width: calc(100% - 15px);
@@ -23,10 +23,36 @@ $videoWidth: 840px;
         }
     }
     &__video {
-        width: $videoWidth;
-        height: $videoHeigth;
         position: fixed;
-        top: calc(50% - #{$videoHeigth/2});
-        left: calc(50% - #{$videoWidth/2});
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0,0,0,0.5);
+        z-index: 10;
+
+        &__frame {
+            width: $videoWidth;
+            height: $videoHeigth;
+        }
+
+        &__modal {
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            top: calc(50% - #{$videoHeigth/2});
+            left: calc(50% - #{$videoWidth/2});
+            z-index: 10;
+            opacity: 1;
+        }
+
+        &__close-button {
+            width: auto;
+            margin-bottom: 5px;
+            align-self: flex-end;
+            cursor: pointer;
+            font-size: 20px;
+            color: white;
+        }
     }
 }

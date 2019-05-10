@@ -6,6 +6,19 @@
     align-items: center;
     padding-top: 150px;
 
+    &__languages {
+        position: absolute;
+        text-align: right;
+        width: 100%;
+        top: 20px;
+        right: 30px;
+
+        span {
+            margin-right: 20px;
+            cursor: pointer;
+        }
+    }
+
     &__photo {
         height: 170px;
         width: 125px;
@@ -30,5 +43,6 @@
         display: inline-block;
         text-decoration: none;
         color: $primary-font-color;
+        cursor: pointer;
     }
   }

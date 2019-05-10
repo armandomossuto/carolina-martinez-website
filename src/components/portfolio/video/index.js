@@ -1,10 +1,12 @@
 import React from "react"
+import { useTranslation } from 'react-i18next';
 
 /**
  * 
  * @param {*} param0 
  */
 const PortfolioVideo = ({ element, closeVideoModal }) => {
+  const { t } = useTranslation();
   const { title, youtubeId} = element;
   const videoUrl = `https://www.youtube.com/embed/${youtubeId}?autoplay=1`;
   
@@ -15,7 +17,7 @@ const PortfolioVideo = ({ element, closeVideoModal }) => {
           className="portfolio-page__video__close-button" 
           onClick={closeVideoModal}
         >
-          Close Video
+          {t('portfolio.closeVideo')}
         </div>
         <iframe
           title={title}

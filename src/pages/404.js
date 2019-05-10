@@ -3,12 +3,18 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const NotFoundPage = () => (
+import { useTranslation } from 'react-i18next';
+
+const NotFoundPage = () => {
+  const { t } = useTranslation();
+
+  return (
   <Layout>
     <SEO title="404: Not found" />
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist.</p>
+    <h1>{t('notFound.title')}</h1>
+    <p>{t('notFound.text')}</p>
   </Layout>
 )
+}
 
 export default NotFoundPage

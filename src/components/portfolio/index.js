@@ -1,12 +1,14 @@
 import React, { Component } from "react"
 import PortfolioVideo from "./video";
+import { useTranslation } from 'react-i18next';
 
 class Portfolio extends Component {
   constructor(props) {
     super(props);
+    const { t } = useTranslation();
     this.state = {
       elements: [
-        this.generatePortfolioElement('Boda Perez-Castilla Martinez', 'p_HV8e5VwLA'),
+        this.generatePortfolioElement(t(portfolio.element.wedding), 'p_HV8e5VwLA'),
         this.generatePortfolioElement('H20', '-Cxzy89DTlU'),
         this.generatePortfolioElement('Ladies Night', 'f-lvW8bmdrU'),
         this.generatePortfolioElement('Cuentos Tío Pepe 2018', 'TZAXKyNU_bw'),

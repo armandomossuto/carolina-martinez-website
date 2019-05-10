@@ -20,22 +20,58 @@ i18n
     resources: {
       en: {
         translation: {
+          header: {
+            title: 'Freelance video editor',
+            about: 'About',
+            contact: 'Contact',
+          },
           portfolio: {
+            element: {
+              wedding: 'Perez-Castilla Martinez Wedding',
+            },
             closeVideo: 'Close Video',
+          },
+          notFound: {
+            title: 'NOT FOUND',
+            text: 'You just hit a route that doesn&#39;t exist.'
           }
         },
       },
       es: {
         translation: {
+          header: {
+            title: 'Editora freelance de video',
+            about: 'Sobre mí',
+            contact: 'Contacto',
+          },
           portfolio: {
+            element: {
+              wedding: 'Boda Perez-Castilla Martinez',
+            },
             closeVideo: 'Cerrar Video',
+          },
+          notFound: {
+            title: 'PÁGINA NO ENCONTRADA',
+            text: 'La página buscada no existe.'
           }
         },
       },
       pt: {
         translation: {
+          header: {
+            title: 'TODO Freelance video editor',
+            about: 'Sobre mim',
+            contact: 'TODO Contact',
+          },
           portfolio: {
+            element: {
+              wedding: 'TODO Boda Perez-Castilla Martinez',
+            },
             closeVideo: 'TODO Close Video',
+          },
+          notFound: {
+            title: 'TODO PÁGINA NO ENCONTRADA',
+            text: 'TODO La página buscada no existe.'
           }
         },
       },

@@ -9,7 +9,7 @@ const PortfolioVideo = ({ element, closeVideoModal }) => {
   const videoUrl = `https://www.youtube.com/embed/${youtubeId}?autoplay=1`;
   
   return(
-    <div className="portfolio-page__video">
+    <div className="portfolio-page__video" onClick={closeVideoModal}>
       <div className="portfolio-page__video__modal">
         <div 
           className="portfolio-page__video__close-button" 

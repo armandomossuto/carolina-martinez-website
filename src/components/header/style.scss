@@ -26,6 +26,10 @@
         background-image: url("profile-photo-xl.jpg");
         background-position: 47% 20%; 
         background-repeat:no-repeat;
+
+        @include for-mobile-only {    
+            display: none;
+         }
     }
 
     &__name {

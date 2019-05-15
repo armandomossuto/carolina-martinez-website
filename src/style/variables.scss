@@ -1,3 +1,9 @@
 $primary-font-color: rgba(192,192,192, 1);
 $secondary-font-color: rgba(254, 126, 3, 1);
 $primary-font-family: 'Myriad Pro';
+
+$mobile-breakpoint: 599px;
+
+@mixin for-mobile-only {
+    @media (max-width: $mobile-breakpoint) { @content; }
+}

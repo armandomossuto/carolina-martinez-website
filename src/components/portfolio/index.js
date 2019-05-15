@@ -1,68 +1,78 @@
-import React, { Component } from "react"
+import React, { useState } from "react"
 import PortfolioVideo from "./video";
 import { useTranslation } from 'react-i18next';
 
-class Portfolio extends Component {
-  constructor(props) {
-    super(props);
-    const { t } = useTranslation();
-    this.state = {
-      elements: [
-        this.generatePortfolioElement(t(portfolio.element.wedding), 'p_HV8e5VwLA'),
-        this.generatePortfolioElement('H20', '-Cxzy89DTlU'),
-        this.generatePortfolioElement('Ladies Night', 'f-lvW8bmdrU'),
-        this.generatePortfolioElement('Cuentos Tío Pepe 2018', 'TZAXKyNU_bw'),
-        this.generatePortfolioElement('Dr. Ibiza "Cálida Noche"', '4BpMqyZHOwQ'),
-        this.generatePortfolioElement('Muestra Cuentos Tío Pepe', '0df_ADevFew'),
-        this.generatePortfolioElement('Itinerante Amarillo', 'PIHYMBzO1oQ')
-      ],
-      videoModal: {
-        isModalOpen: false,
-        element: null
-      }
-    }
+/**
+ * Potfolio Component
+ * Displays in a grid with max 3 elements per line every item of the Porfolio
+ * It is easy to add or remove elements using elements from the state in combination
+ * with generatePorfolioElement function
+ */
+const Portfolio = () => {
 
-    this.generatePortfolioElement = this.generatePortfolioElement.bind(this);
-    this.openVideoModal = this.openVideoModal.bind(this);
-    this.closeVideoModal = this.closeVideoModal.bind(this);
-  }
+  const { t } = useTranslation();
 
   /**
    * Generate Obects element of the portfolio
    * @param {string} title - title of the video 
    * @param {string} youtubeId  -  youtube Id of the video
    */
-  generatePortfolioElement(title, youtubeId) {
+  const generatePortfolioElement = (title, youtubeId) => {
     return {
       title,
       youtubeId,
       thumbnail: `https://img.youtube.com/vi/${youtubeId}/0.jpg`
     }
   }
+  
+  /**
+   * List of portfolio video elements. They should include a title and a youtube Id
+   * @type {array}
+   */
+  const [elements] = useState([
+    generatePortfolioElement(t('portfolio.element.wedding'), 'p_HV8e5VwLA'),
+    generatePortfolioElement('H20', '-Cxzy89DTlU'),
+    generatePortfolioElement('Ladies Night', 'f-lvW8bmdrU'),
+    generatePortfolioElement('Cuentos Tío Pepe 2018', 'TZAXKyNU_bw'),
+    generatePortfolioElement('Dr. Ibiza "Cálida Noche"', '4BpMqyZHOwQ'),
+    generatePortfolioElement('Muestra Cuentos Tío Pepe', '0df_ADevFew'),
+    generatePortfolioElement('Itinerante Amarillo', 'PIHYMBzO1oQ')
+  ]);
+
+  /**
+   * Keeps track of the Video Modal (PortfolioVideo component) state
+   * @type {object}
+   */
+  const [videoModal, setVideoModal] = useState({
+    isModalOpen: false,
+    element: null
+  });
 
   /**
    * Opens the modal with youtube iframe of the video selected by the user
-   * @param {string} youtubeId - youtube Id of the video to reproduce in the iframe modal
+   * @param {object} element - parameters of the video to be reproduced in the modal
    */
-  openVideoModal(element) {
+  const openVideoModal = element => {
     document.body.style.overflow = "hidden";
-    this.setState({videoModal: { isModalOpen: true,  element }});
+    setVideoModal({ isModalOpen: true,  element });
   }
 
   /**
    * Closes the modal with youtube iframe used to reproduce an element
    */
-  closeVideoModal() {
+  const closeVideoModal = () => {
     document.body.style.overflow = "auto";
-    this.setState({ videoModal: { isModalOpen: false,  element: null }});
+    setVideoModal({ isModalOpen: false,  element: null });
   }
 
-  render() {
-    const { elements, videoModal } = this.state;
-    return(
+  return(
       <div className="portfolio-page">
         {elements.map(element =>
-            <div className="portfolio-page__element" onClick={() => this.openVideoModal(element)}>
+            <div 
+              className="portfolio-page__element" 
+              onClick={() => openVideoModal(element)}
+              key={element.title}
+            >
               <img
                 className="portfolio-page__element__thumbnail" 
                 src={element.thumbnail}
@@ -76,13 +86,12 @@ class Portfolio extends Component {
         {videoModal.isModalOpen
           ? <PortfolioVideo 
               element={videoModal.element}
-              closeVideoModal={this.closeVideoModal}
+              closeVideoModal={closeVideoModal}
             />
           : null
         }
       </div>
     )
-  }
 }
 
 

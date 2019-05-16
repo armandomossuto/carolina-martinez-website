@@ -34,6 +34,20 @@ i18n
           notFound: {
             title: 'NOT FOUND',
             text: 'You just hit a route that doesn&#39;t exist.'
+          },
+          contact: {
+            info: {
+              emailAndSkype: 'Email and Skype phone/chat:',
+              mobileAndWhatsapp: 'Mobile/Whatsapp:'
+            },
+            form: {
+              firstName: 'First Name:',
+              lastName: 'Last Name:',
+              emailAddress: 'Email address:',
+              subject: 'Subject:',
+              message: 'Message:',
+              submit: 'Submit'
+            }
           }
         },
       },
@@ -53,6 +67,20 @@ i18n
           notFound: {
             title: 'PÁGINA NO ENCONTRADA',
             text: 'La página buscada no existe.'
+          },
+          contact: {
+            info: {
+              emailAndSkype: 'Correo electrónico y Skype teléfono/chat:',
+              mobileAndWhatsapp: 'Teléfono móvil/Whatsapp:'
+            },
+            form: {
+              firstName: 'Nombre:',
+              lastName: 'Apellido:',
+              emailAddress: 'Correo electrónico:',
+              subject: 'Título:',
+              message: 'Mensaje:',
+              submit: 'Enviar'
+            }
           }
         },
       },
@@ -72,6 +100,20 @@ i18n
           notFound: {
             title: 'TODO PÁGINA NO ENCONTRADA',
             text: 'TODO La página buscada no existe.'
+          },
+          contact: {
+            info: {
+              emailAndSkype: 'TODO Correo electrónico y Skype teléfono/chat:',
+              mobileAndWhatsapp: 'TODO Teléfono móvil/Whatsapp:'
+            },
+            form: {
+              firstName: 'TODO Nombre:',
+              lastName: 'TODO Apellido:',
+              emailAddress: 'TODO Correo electrónico:',
+              subject: 'TODO Título:',
+              message: 'TODO Mensaje:',
+              submit: 'TODO Enviar'
+            }
           }
         },
       },

@@ -6,6 +6,10 @@
     align-items: center;
     padding-top: 150px;
 
+    @include for-mobile-only {    
+        padding-top: 50px;
+     }
+
     &__languages {
         position: absolute;
         text-align: right;
@@ -27,7 +31,11 @@
         background-position: 47% 20%; 
         background-repeat:no-repeat;
 
-        @include for-mobile-only {    
+        @include for-mobile-portrait-only {    
+            transform: scale(0.75);
+         }
+
+         @include for-mobile-landscape-only {    
             display: none;
          }
     }

@@ -1,5 +1,7 @@
 $videoHeigth: 474px;
 $videoWidth: 840px;
+$videoHeigth-mobile: 200px;
+$videoWidth-mobile: 350px;
 
 .portfolio-page {
     padding: 30px 30px 0 30px;
@@ -11,6 +13,10 @@ $videoWidth: 840px;
     &__element {
         margin-bottom: 20px;
         flex: 0 0 calc(33.33% - 15px);
+
+        @include for-mobile-portrait-only {    
+            flex: 0 0 75%;
+         }
 
         &__thumbnail {
             width: calc(100% - 15px);
@@ -34,6 +40,12 @@ $videoWidth: 840px;
         &__frame {
             width: $videoWidth;
             height: $videoHeigth;
+
+            @include for-mobile-only {    
+                width: $videoWidth-mobile;
+                height: $videoHeigth-mobile;
+             }
+            
         }
 
         &__modal {
@@ -44,6 +56,11 @@ $videoWidth: 840px;
             left: calc(50% - #{$videoWidth/2});
             z-index: 10;
             opacity: 1;
+
+            @include for-mobile-only {    
+                top: calc(50% - #{$videoHeigth-mobile/2});
+                left: calc(50% - #{$videoWidth-mobile/2});
+             }
         }
 
         &__close-button {

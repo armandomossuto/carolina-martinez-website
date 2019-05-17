@@ -1,14 +1,19 @@
 import React, { useState } from "react"
 import { useTranslation } from 'react-i18next';
 
+// Importing Notification Modal HOC
+import withNotificationModal from '../modals/notificationModal/index.js'
+
+// Importing the email service configuration params to be used here
+import { formEmailSenderUrl, recipientCodeName } from '../../../configuration.js'
+
 /**
  * Contact Component
  * Displays contact iromation and form to send a contact message
  */
-const Contact = () => {
+const Contact = ({ openNotificationModal }) => {
 
   const { t } = useTranslation();
-
 
   /**
    * Keeps track of the form input fields
@@ -22,13 +27,72 @@ const Contact = () => {
     message: ''
   });
 
-  const handleInputChange = (event) => {
+  /**
+   * Handle changes in input fields in the contact-form to update the form values
+   * @param {event} event 
+   */
+  const handleInputChange = event => {
     event.persist();
     setFormFields(form => ({...form, [event.target.name]: event.target.value }));
   }
 
-  const onSubmit = () => {
-    // Will submit the form
+  /**
+   * It will handle the display of an error message in the notification modal
+   * if the request to the mail sender fails
+   */
+  const onFormEmailFailure = () => {
+    const message = t('contact.notification.error');
+    const className = 'contact-page__notification-modal--error';
+    openNotificationModal(message, className);
+  }
+
+  /**
+   * It will handle the display of a success message in the notification modal
+   * if the request to the mail sender is successful
+   */
+  const onFormEmailSuccess = () => {
+    const message = t('contact.notification.success');
+    const className = 'contact-page__notification-modal--success';
+    openNotificationModal(message, className);
+  }
+
+  const onSubmitContactForm = () => {
+    const {
+      firstName,
+      lastName,
+      emailAddress,
+      subject,
+      message: text
+     } = form;
+
+    const messageInfo = {
+      recipientCodeName,
+      firstName,
+      lastName,
+      emailAddress,
+      subject,
+      text
+    };
+
+    const config = {
+       method: 'POST', 
+       mode: 'cors', 
+       headers: { "Content-Type": 'application/json' },
+       body: JSON.stringify({ messageInfo })
+      }
+
+    fetch(formEmailSenderUrl, config)
+      .then(res => res.json())
+      .then(data => {
+        if(data.message === "success") {
+          onFormEmailSuccess();
+        } else {
+          onFormEmailFailure();
+        }
+      }).catch(err => {
+        console.log(err);
+        onFormEmailFailure()
+      })
   }
 
   return(
@@ -73,7 +137,7 @@ const Contact = () => {
           </div>
           <div 
             className="contact-page__form__submit"
-            onClick={onSubmit}
+            onClick={onSubmitContactForm}
           >
             {t('contact.form.submit')}
           </div>
@@ -92,6 +156,4 @@ const Contact = () => {
     )
 }
 
-
-
-export default Contact;
+export default withNotificationModal(Contact);

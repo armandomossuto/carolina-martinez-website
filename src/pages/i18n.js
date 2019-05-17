@@ -47,6 +47,10 @@ i18n
               subject: 'Subject:',
               message: 'Message:',
               submit: 'Submit'
+            },
+            notification: {
+              error: 'Something went wrong with your request. Please try again and if it keeps happening, do not hesitate to use the contact infotmation displayed bellow.',
+              success: 'Your message has been sent. I will contact you as soon as possible.'
             }
           }
         },
@@ -80,6 +84,10 @@ i18n
               subject: 'Título:',
               message: 'Mensaje:',
               submit: 'Enviar'
+            },
+            notification: {
+              error: 'Ocurrió un error con su solicitud. Port favor, vuelva a intentar y si el error persiste no dude en utilizar los datos de contacto que se encuentran en la parte inferior de esta página.',
+              success: 'Su mensaje se envió correctamente. Le daré una respuesta ran rápido como sea posible.'
             }
           }
         },
@@ -113,6 +121,10 @@ i18n
               subject: 'TODO Título:',
               message: 'TODO Mensaje:',
               submit: 'TODO Enviar'
+            },
+            notification: {
+              error: 'TODO Ocurrió un error con su solicitud. Port favor, vuelva a intentar y si el error persiste no dude en utilizar los datos de contacto que se encuentran en la parte inferior de esta página.',
+              success: 'TODO Su mensaje se envió correctamente. Le daré una respuesta ran rápido como sea posible.'
             }
           }
         },

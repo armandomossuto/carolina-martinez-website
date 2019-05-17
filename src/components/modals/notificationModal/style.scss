@@ -1,0 +1,27 @@
+$notification-modal-max-width: 50%;
+
+.notification-modal {
+    position: fixed;
+    display: flex;
+    flex-flow: column nowrap;
+    max-width: $notification-modal-max-width;
+    padding: 20px;
+    border: solid 1px black;
+    left: 25%;
+    top: 40%;
+    z-index: 3;
+    background: white;
+    color: $primary-font-color;
+
+    &__message {
+        flex-grow: 1;
+        margin-bottom: 30px;
+    }
+
+    &__confirmation-button {
+        margin-top: auto;
+        width: 50px;
+        align-self: center;
+    }
+
+}
